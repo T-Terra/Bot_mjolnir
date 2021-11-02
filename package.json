@@ -2,11 +2,9 @@
   "name": "bot_mjolnir",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/window.js",
+  "main": "src/main.js",
   "scripts": {
-    "dev": "ts-node-dev src/window.ts",
-    "build": "tsc",
-    "start": "npm run build && electron ."
+    "dev": "ts-node-dev src/main.ts"
   },
   "keywords": [],
   "author": "Gabriel Terra",
@@ -15,9 +13,7 @@
     "puppeteer": "^10.4.0"
   },
   "devDependencies": {
-    "@types/electron": "^1.6.10",
     "@types/puppeteer": "^5.4.4",
-    "electron": "^15.3.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
   }
