@@ -1,15 +1,18 @@
-export async function selectorVisible(page, browser, selector_photo: string, selector_ismsg: string) {
+export async function loginIsTrue(page, browser, selector_photo: string) {
 	const photoLogin = await page.$(selector_photo);
-	const isMsg = await page.$(selector_ismsg);
 	// VERIFICA SE ESTÁ LOGADO
 	if (photoLogin) {
 		await page.waitForSelector(selector_photo, { visible: true });
-		await page.evaluate(() => window.alert('VOCÊ ESTÁ LOGADO!!'));
+		return true;
 	} else {
 		await browser.close();
 		throw ('Erro! não existe seletor ou seletor passado como argumento errado!');
 	}
 
+}
+
+export async function messageIsTrue(page, browser, selector_ismsg: string) {
+	const isMsg = await page.$(selector_ismsg);
 	// VERIFICA SE TEM MENSAGEM
 	if (isMsg) {
 		await page.evaluate(() => window.alert('VOCÊ TEM UMA NOVA MENSAGEM!!'));

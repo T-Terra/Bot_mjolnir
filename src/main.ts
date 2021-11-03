@@ -1,4 +1,4 @@
-import { selectorVisible } from './selectors';
+import { loginIsTrue, messageIsTrue } from './selectors';
 
 const puppeteer = require('puppeteer');
 
@@ -11,8 +11,11 @@ async function start(): Promise<void> {
 	const page = await browser.newPage();
 	await page.goto('https://web.whatsapp.com/');
 
-	setTimeout(async () => {
-		selectorVisible(page, browser, '[class="_1lPgH"]', '[class="_23LrM"]');
+	
+
+	setInterval(() => {
+		loginIsTrue(page, browser, '[class="_1lPgH"]');
+		messageIsTrue(page, browser, '[class="_23LrM"]');
 	}, 20000);
 }
 
