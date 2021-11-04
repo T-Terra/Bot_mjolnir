@@ -15,8 +15,8 @@ async function start(): Promise<void> {
 
 	setInterval(() => {
 		loginIsTrue(page, browser, '[class="_1lPgH"]');
-		messageIsTrue(page, browser, '[class="_23LrM"]');
-	}, 20000);
+		messageIsTrue(page, browser, '[class="_23LrM"]', '[class="_3OvU8"]');
+	}, 30000);
 }
 
 start();

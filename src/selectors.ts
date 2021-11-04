@@ -11,12 +11,13 @@ export async function loginIsTrue(page, browser, selector_photo: string) {
 
 }
 
-export async function messageIsTrue(page, browser, selector_ismsg: string) {
+export async function messageIsTrue(page, browser, selector_ismsg: string, selector_father: string) {
 	const isMsg = await page.$(selector_ismsg);
+	const userContact = await page.$(selector_father);
+
 	// VERIFICA SE TEM MENSAGEM
 	if (isMsg) {
-		await page.evaluate(() => window.alert('VOCÊ TEM UMA NOVA MENSAGEM!!'));
-		// await page.click('[class="_3OvU8"]');
+		await page.click('[class="_1pJ9J"]');
 	} else {
 		await page.evaluate(() => window.alert('VOCÊ NÃO POSSUI NOVAS MENSAGENS!!'));
 	}
