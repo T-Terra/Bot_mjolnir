@@ -1,3 +1,5 @@
+import { sendMessage, closePage } from './sendMessage';
+
 export async function loginIsTrue(page, browser, selector_photo: string) {
 	const photoLogin = await page.$(selector_photo);
 	// VERIFICA SE ESTÁ LOGADO
@@ -14,11 +16,17 @@ export async function messageIsTrue(page, browser, msgIsTrue: string, msgIsFalse
 	//const isMsgFalse = await page.$(msgIsFalse);
 
 	// VERIFICA SE TEM MENSAGEM
-	if (msgIsTrue) {
+	const message = await page.evaluate(() => {
+		return document.querySelector('._2nY6U._3C4Vf');
+	});
+	if (message === undefined) {
 		setTimeout(async () => {
 			await page.click(msgIsTrue);
+			sendMessage(page, browser, '[class="_2lMWa"]', '[class="_3HQNh _1Ae7k"]');
 		}, 2000);
-	} else if (msgIsTrue === null && msgIsFalse) {
-		await page.evaluate(() => window.alert('VOCÊ NÃO POSSUI NOVAS MENSAGENS!!'));
+	} else if (message === null){
+		console.log('Você não possui novas mensagens!');
+		closePage(page, browser);
 	}
+
 }
