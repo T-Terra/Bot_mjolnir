@@ -1,4 +1,4 @@
-import { sendMessage, closePage } from './sendMessage';
+import { sendMessage, reloadPage } from './sendMessage';
 
 export async function loginIsTrue(page, browser, selector_photo: string) {
 	const photoLogin = await page.$(selector_photo);
@@ -23,10 +23,12 @@ export async function messageIsTrue(page, browser, msgIsTrue: string, msgIsFalse
 		setTimeout(async () => {
 			await page.click(msgIsTrue);
 			sendMessage(page, browser, '[class="_2lMWa"]', '[class="_3HQNh _1Ae7k"]');
+			reloadPage(page);
 		}, 2000);
 	} else if (message === null){
-		console.log('Você não possui novas mensagens!');
-		closePage(page, browser);
+		// console.log('Você não possui novas mensagens!');
+		return;
 	}
+
 
 }
