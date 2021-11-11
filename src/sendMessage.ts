@@ -9,4 +9,28 @@ async function reloadPage(page) {
 	}, 5000);
 }
 
+export async function reloadPage2(page) {
+	setTimeout(async () => {
+		await page.reload();
+	}, 5000);
+}
+
+export async function reloadPage3(page) {
+	setTimeout(async () => {
+		await page.reload();
+	}, 5000);
+}
+
+export async function reloadPage4(page) {
+	setTimeout(async () => {
+		await page.reload();
+	}, 5000);
+}
+
+export async function reloadPage5(page) {
+	setTimeout(async () => {
+		await page.reload();
+	}, 5000);
+}
+
 export { reloadPage };
