@@ -3,8 +3,10 @@ export async function sendMessage(page, browser, inputMessage: string, buttonSen
 	await page.click(buttonSend);
 }
 
-export async function reloadPage(page) {
+async function reloadPage(page) {
 	setTimeout(async () => {
 		await page.reload();
 	}, 5000);
 }
+
+export { reloadPage };
