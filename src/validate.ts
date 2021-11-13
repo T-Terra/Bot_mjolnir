@@ -1,21 +1,31 @@
 import { sendMessage, reloadPage } from './sendMessage';
 
-export async function loginIsTrue(page, browser, selector_photo: string) {
-	const photoLogin = await page.$(selector_photo);
-	// VERIFICA SE ESTÁ LOGADO
+/**
+ * @param {*} page instância de page
+ * @param {*} browser instância de browser
+ * @param {string} selectorPhoto seletor da foto de perfil do whatsapp
+ * @return {*} retorna true se photoLogin for true
+ */
+export async function loginIsTrue(page, browser, selectorPhoto: string) {
+	const photoLogin = await page.$(selectorPhoto);
 	if (photoLogin) {
-		await page.waitForSelector(selector_photo, { visible: true });
+		await page.waitForSelector(selectorPhoto, { visible: true });
 		return true;
 	} else {
 		await browser.close();
 		throw ('Erro! não existe seletor ou seletor passado como argumento errado!');
 	}
 }
-export async function messageIsTrue(page, browser, msgIsTrue: string, msgIsFalse: string) {
+
+
+/**
+ * @param {*} page instância de page
+ * @param {*} browser instância de browser
+ * @param {string} msgIsTrue valida se tem mensagens pelo seletor
+ */
+export async function messageIsTrue(page, browser, msgIsTrue: string) {
 	//const isMsgTrue = await page.$(msgIsTrue);
 	//const isMsgFalse = await page.$(msgIsFalse);
-
-	// VERIFICA SE TEM MENSAGEM
 	const message = await page.evaluate(() => {
 		return document.querySelector('._2nY6U._3C4Vf');
 	});
@@ -26,7 +36,7 @@ export async function messageIsTrue(page, browser, msgIsTrue: string, msgIsFalse
 			reloadPage(page);
 		}, 2000);
 	} else if (message === null){
-		// console.log('Você não possui novas mensagens!');
+		console.log('Você não possui novas mensagens!');
 		return;
 	}
 
