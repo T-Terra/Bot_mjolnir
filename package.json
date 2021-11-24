@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "dev": "ts-node-dev src/main.ts"
+    "botfatec": "ts-node-dev src/BotFatec/index.ts",
+    "botmjolnir": "ts-node-dev src/BotMjolnir/index.ts"
   },
   "keywords": [],
   "author": "Gabriel Terra",

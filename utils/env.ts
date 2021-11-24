@@ -8,5 +8,7 @@ dotenv.config();
  */
 export const env = {
 	url: process.env.URL,
-	msgMenu: process.env.MSG_MENU
+	msgMenu: process.env.MSG_MENU,
+	urlFatec: process.env.URL_FATEC,
+	ci: process.env.CI === 'true'
 };
