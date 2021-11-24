@@ -1,6 +1,6 @@
 import { loginIsTrue, messageIsTrue } from './validate';
 import { env } from '../utils/env';
-import { cliqueNoElemento} from '../utils/actions';
+import { sleep } from '../utils/actions';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const puppeteer = require('puppeteer');
@@ -22,7 +22,8 @@ export async function start(typeBot: number) {
 		} else if (typeBot === 2) {
 			await page.goto(env.urlFatec);
 			console.log('ENTROU NO SITE');
-			await cliqueNoElemento(page, '//*[@id="content"]/article/div[3]/ul/li[1]/a');
+			await sleep(3);
+			await page.click('[class="feature-circle fa fa-clock-o"]');
 		}
 	} else {
 		const browser = await puppeteer.launch({
@@ -44,7 +45,9 @@ export async function start(typeBot: number) {
 			}, 18000);
 		} else if (typeBot === 2) {
 			await page.goto(env.urlFatec);
-			await cliqueNoElemento(page, '//*[@id="content"]/article/div[3]/ul/li[1]/a');
+			await sleep(3);
+			await page.click('[class="feature-circle fa fa-clock-o"]');
+			
 		}
 	}
 	

@@ -1,4 +1,5 @@
-export async function cliqueNoElemento(page, xPath: string) {
-	const el = await page.$x(xPath);
-	await page.click(el);
+export async function sleep(seconds: number) {
+	return new Promise(resolve => {
+		setTimeout(resolve, seconds * 1000);
+	});
 }
