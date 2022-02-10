@@ -13,7 +13,7 @@ export async function loginIsTrue(page, browser, selectorPhoto: string) {
 		return true;
 	} else {
 		await browser.close();
-		throw ('Erro! não existe seletor ou seletor passado como argumento errado!');
+		throw new Error('Erro! não existe seletor ou seletor passado como argumento errado!');
 	}
 }
 

@@ -1,3 +1,3 @@
 import { start } from '../main';
 
-start(2);
+start(2, 'semana');
